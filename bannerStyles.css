@@ -1,0 +1,30 @@
+body{
+    background-color: #FED811;
+    color: #FFFFFF;
+    font-family: InterVariable, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Liberation Sans', Helvetica, Arial, sans-serif;
+  }
+  
+  #handle{
+    text-align: center;
+    position: relative;
+    top: 300px;
+    font-size: 100px;
+  }
+  
+  #tagline{
+    position: relative;
+    text-align: center;
+    top: 250px;
+  }
+  
+  #background{
+    text-align: justify;
+    font-size: large;
+    font-weight: bold;
+    opacity: 0.3;
+    width: 1500px;
+    height: 500px;
+    margin-left: 10%;
+    margin-top: -5%;
+    overflow: hidden;
+  }
