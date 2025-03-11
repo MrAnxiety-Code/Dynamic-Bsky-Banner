@@ -4,7 +4,7 @@
 
 const RSS_URL = "https://bsky.app/profile/did:plc:uexvzvxiyl5ntq7h46vt5vix/rss";
 
-fetch(RSS_URL)
+fetch(RSS_URL, {mode: 'no-cors'})
   .then(response => response.text())
   .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
   .then(data => {
@@ -14,10 +14,9 @@ fetch(RSS_URL)
     items.forEach(el => {
       html += `
         <article>
-          <img src="${el.querySelector("link").innerHTML}/image/large.png" alt="">
           <h2>
             <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
-              ${el.querySelector("title").innerHTML}
+              ${el.querySelector("description").innerHTML}
             </a>
           </h2>
         </article>
