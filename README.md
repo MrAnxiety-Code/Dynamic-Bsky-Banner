@@ -24,6 +24,33 @@ This was my original idea. Knowing that every profile is also an RSS feed if you
 
 **NOPE!**
 
-I legitimately do not remember how I did this before. Ages and ages ago, during the pandemic, I made one that parsed an RSS feed for a podcast. It would select an episode at random from the feed, and then play it on a webpage showing the episode title and description. Part of it is not remembering what I did before, another part is trying to do that in JS which I did not do before (maybe? if I did, I didn't know what I was writing and did a whole lot of copy and paste code from stack overflow).
+I legitimately do not remember how I did this before. Ages and ages ago, during the pandemic, I made one that parsed an RSS feed for a podcast. It would select an episode at random from the feed, and then play it on a webpage showing the episode title and description. Part of it is not remembering what I did before, another part is trying to do that in JS which I did not do before (maybe? if I did, I didn't know what I was writing and did a whole lot of copy and paste code from stack overflow). I did some googling and found two sites talking about it:
+- [The first one](https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/) looked good but I didn't understand some of the code. No biggie, that's part of why I'm doing this. But the code was not returning data.
+- [And this one](https://dev.to/geekgalgroks/building-an-rss-reader-in-javascript-1ep0) was promising. I really like how they documented the road blocks they ran into. But their solution was to ultimately use the code that i didn't really understand in the first one. No joke, the answer was a link to the website I'd already found, great minds huh?
+
+I still think there's some potential here but I need to narrow down what the issue is.
+
+#### Blockers
+1. Google Chrome was blocking the ```fetch()``` method from getting the RSS feed at all. So I've been testing in Edge.
+2. BlueSky's [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) was blocking the request.
+3. Changing ```fetch()``` to include ```{mode: no-cors}``` still doesn't return any data: ```fetch(feed, {mode: no-cors});```
+   - instead I get a new error logged to the console:
+   ```
+   <parsererror style="display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black">
+    <h3>This page contains the following errors:<h3>
+    <div style="font-family:monospace;font-size:12px">error on line 1 at column 1: Document is empty</div>
+    <h3>Below is a rendering of the page up to the first error.<h3>
+   </parsererror>
+   ```
+   - I don't know if this means ```{mode: no-cors}``` is doing nothing and I'm still locked out, or if I'm not parsing the data correctly. Given that a lot of the code for parsing I've just copied and pasted for the sake of proof of concept, it is totally possible there's something going on there I don't understand and therefore have not configured correctly.
 
 ### Using the [Bluesky API](https://docs.bsky.app/)
+#### Pros
+- Theoretically can allow me to do a lot of cool, artsy stuff like using the My bangers Feed or my own follwers feed.
+- I learn more about APIs which is something I want to do, and Gemini reckons I'm ready to explore.
+- I learn more about the Bluesky API specifically, which I hope can deepen my understanding of the AT Protocol.
+- I get to learn Typescript.
+#### Cons
+- I get to learn Typescript.
+
+The con here is pretty diheartening. It's not that I don't want to learn Typescript, it's that I don't think I'm ready for it. But really it just means that I'll need to park this here for a bit while I go off and learn some more. There's other projects for me to tackle that will get me here. There's even more projects I can do that I'm not aware of because I've onyl just glimpsed Typescript. So far the sum total of my reading has been the first couple chapters of documentation on the [Typescript website](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
