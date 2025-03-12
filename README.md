@@ -26,12 +26,12 @@ This was my original idea. Knowing that every profile is also an RSS feed if you
 
 I legitimately do not remember how I did this before. Ages and ages ago, during the pandemic, I made one that parsed an RSS feed for a podcast. It would select an episode at random from the feed, and then play it on a webpage showing the episode title and description. Part of it is not remembering what I did before, another part is trying to do that in JS which I did not do before (maybe? if I did, I didn't know what I was writing and did a whole lot of copy and paste code from stack overflow). I did some googling and found two sites talking about it:
 - [The first one](https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/) looked good but I didn't understand some of the code. No biggie, that's part of why I'm doing this. But the code was not returning data.
-- [And this one](https://dev.to/geekgalgroks/building-an-rss-reader-in-javascript-1ep0) was promising. I really like how they documented the road blocks they ran into. But their solution was to ultimately use the code that i didn't really understand in the first one. No joke, the answer was a link to the website I'd already found, great minds huh?
+- [And this one](https://dev.to/geekgalgroks/building-an-rss-reader-in-javascript-1ep0) was promising. I really like how they documented the roadblocks they ran into. But their solution was to ultimately use the code that I didn't really understand in the first one. No joke, the answer was a link to the website I'd already found, great minds huh?
 
 I still think there's some potential here but I need to narrow down what the issue is.
 
 #### Blockers
-1. Google Chrome was blocking the ```fetch()``` method from getting the RSS feed at all. So I've been testing in Edge.
+1. Google Chrome was blocking the ```fetch()``` method from getting the RSS feed at all. So I've been testing in Edge. Maybe I need to test in another browser?
 2. BlueSky's [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) was blocking the request.
 3. Changing ```fetch()``` to include ```{mode: no-cors}``` still doesn't return any data: ```fetch(feed, {mode: no-cors});```
    - instead I get a new error logged to the console:
@@ -53,4 +53,9 @@ I still think there's some potential here but I need to narrow down what the iss
 #### Cons
 - I get to learn Typescript.
 
-The con here is pretty diheartening. It's not that I don't want to learn Typescript, it's that I don't think I'm ready for it. But really it just means that I'll need to park this here for a bit while I go off and learn some more. There's other projects for me to tackle that will get me here. There's even more projects I can do that I'm not aware of because I've onyl just glimpsed Typescript. So far the sum total of my reading has been the first couple chapters of documentation on the [Typescript website](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
+The con here is pretty disheartening. It's not that I don't want to learn Typescript, it's that I don't think I'm ready for it. But really it just means that I'll need to park this here for a bit while I go off and learn some more. There's other projects for me to tackle that will get me here. There's even more projects I can do that I'm not aware of because I've only just glimpsed Typescript. So far the sum total of my reading has been the first couple chapters of documentation on the [Typescript website](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html).
+
+## TODO
+- [ ] Complete the intermediate JS course on Sololearn. The last section of the course gets into ES6 which seems to have a lot of stuff that I see going on in the bluesky API documentation.
+- [ ] Do some more research on Typescript. I don't think I need a [make Doom in types](https://www.youtube.com/watch?v=0mCsluv5FXA) level of knowledge to get this to work. Particularly as I only want read access and don't need write access.
+- [ ] See how sites like [PDSls](https://pdsls.dev/) implement the API when doing things that are read only, like showing someones posts.
